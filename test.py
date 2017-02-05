@@ -4,14 +4,18 @@ from mock import patch, MagicMock
 
 import tornado.testing
 
+from excpts import NoSuchObjectException
 from fake_gspread import FakeGspread
 import main
+import sheets_api_handler
 
 
 class TestGspreadHandler(unittest.TestCase):
     def setUp(self):
         self.fakeSheet = FakeGspread()
-        self.handler = main.GoogleSheetsRESTHandler(FakeGspread(), '')
+        self.handler = sheets_api_handler.GoogleSheetsRESTHandler(
+            FakeGspread(), '',
+        )
 
     def test_base_integration(self):
         self.handler.post('object', {'key': 'value'})
@@ -75,7 +79,7 @@ class TestApi(tornado.testing.AsyncHTTPTestCase):
         self.mock_datastore.get.assert_called_with('object', 1)
 
     def test_get_nosuch(self):
-        self.mock_datastore.get.side_effect = main.NoSuchObjectException
+        self.mock_datastore.get.side_effect = NoSuchObjectException
         resp = self.fetch('/object/')
         self.assertEqual(resp.code, 404)
 
@@ -86,10 +90,5 @@ class TestApi(tornado.testing.AsyncHTTPTestCase):
         self.mock_datastore.post.assert_called_with('object', self.POST_DATA)
 
 
-
-
 if __name__ == '__main__':
     unittest.main()
-
-
-

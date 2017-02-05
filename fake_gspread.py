@@ -1,10 +1,8 @@
 from __future__ import print_function
 import copy
-def _blank(val):
-    return val is None or val == ''
 
-def _allblank(test_list):
-    return reduce(lambda cur, new: cur and _blank(new), test_list, False)
+from blanks import _blank, _allblank
+
 
 class FakeGspread(object):
     _spreadsheet_registry = {}

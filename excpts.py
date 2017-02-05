@@ -1,0 +1,2 @@
+class NoSuchObjectException(Exception):
+    pass
