@@ -2,3 +2,4 @@ tornado
 mock
 ipdb
 gspread
+django

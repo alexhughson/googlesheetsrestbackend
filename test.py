@@ -4,6 +4,7 @@ from mock import patch, MagicMock
 
 import tornado.testing
 
+import gsheetsbackedrest.test
 from excpts import NoSuchObjectException
 from fake_gspread import FakeGspread
 import main

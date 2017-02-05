@@ -1,6 +1,7 @@
 from excpts import NoSuchObjectException
 from blanks import _blank, _allblank
 
+
 class GoogleSheetsRESTHandler(object):
     def __init__(self, connection, spreadsheet_id):
         self.gspread_connection = connection
