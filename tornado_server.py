@@ -4,9 +4,9 @@ import json
 import tornado.ioloop
 import tornado.web
 
-from excpts import NoSuchObjectException
-from fake_gspread import FakeGspread
-from sheets_api_handler import GoogleSheetsRESTHandler
+from googlesheetsrestbackend.exceptions import NoSuchObjectException
+from test.test_gspread_handler import FakeGspread
+from googlesheetsrestbackend.sheets_api_handler import GoogleSheetsRESTHandler
 
 
 class MainHandler(tornado.web.RequestHandler):

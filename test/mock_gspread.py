@@ -1,7 +1,7 @@
 from __future__ import print_function
 import copy
 
-from blanks import _blank, _allblank
+from googlesheetsrestbackend.blanks import _blank, _allblank
 
 
 class FakeGspread(object):

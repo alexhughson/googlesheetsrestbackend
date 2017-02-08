@@ -1,4 +1,4 @@
-from excpts import NoSuchObjectException
+from .exceptions import NoSuchObjectException
 from blanks import _blank, _allblank
 
 
